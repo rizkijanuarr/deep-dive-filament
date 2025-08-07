@@ -19,6 +19,10 @@ class Treatment extends Model
         'price',
     ];
 
+    protected $casts = [
+        'price' => \App\Casts\MoneyCast::class,
+    ];
+
     public function patients(): BelongsTo
     {
         return $this->belongsTo(\App\Models\Patient::class);
