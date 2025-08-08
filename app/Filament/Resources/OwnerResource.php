@@ -16,6 +16,15 @@ class OwnerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    // registered global search
+    protected static ?string $recordTitleAttribute = 'name';
+
+    // function for as global search
+    public static function getGlobalSearchResultTitle(\Illuminate\Database\Eloquent\Model $record): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return $record->name;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
